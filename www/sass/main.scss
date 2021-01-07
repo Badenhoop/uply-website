@@ -1,0 +1,19 @@
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(19, 227, 139);
+  color: rgb(44, 44, 44);
+}
+
+.logo-container {
+  text-align: center;
+  padding: 10px;
+  div {
+    color: white;
+    padding-bottom: 10px;
+  }
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+}
