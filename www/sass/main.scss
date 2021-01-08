@@ -1,19 +1,282 @@
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgb(19, 227, 139);
-  color: rgb(44, 44, 44);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;800&display=swap');
+
+$purple: #974DFF;
+$cyan: #33FFA0;
+$white: #ffffff;
+$black: #000000;
+
+// Original resolution is 888x1920
+$phone-width-mobile: 90vw;
+$phone-height-mobile: 195vw;
+
+$horizontal-padding: 2em;
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.logo-container {
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: Poppins, sans-serif;
+  background-color: $white;
+}
+
+svg {
+  display: block;
+}
+
+section {
+  padding: 0 $horizontal-padding;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 800;
+  line-height: 1.2;
+  color: $black;
+  font-size: 4em;
   text-align: center;
-  padding: 10px;
-  div {
-    color: white;
-    padding-bottom: 10px;
+}
+
+h2 {
+  font-weight: 800;
+  line-height: 1.2;
+  color: $black;
+  font-size: 3em;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 300;
+  line-height: 1.2;
+  color: $black;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.logo {
+  width: 5em;
+}
+
+.underline {
+  width: 5em;
+  height: 1.2em;
+  background-color: $cyan;
+  margin: 1em auto 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  background-color: $white;
+  border: none;
+  color: $purple;
+  padding: 0.8em 2.5em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.curve {
+  width: 100vw;
+  height: 10vw;
+}
+
+.phone {
+  width: $phone-width-mobile;
+  margin: auto;
+}
+
+.phone-border {
+  position: absolute;
+  z-index: 1;
+  width: 90vw;
+}
+
+.phone-screen {
+  position: absolute;
+  z-index: 0;
+  width: 79vw;
+  top: 4vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.hero {
+  padding: 0;
+
+  nav {
+    background: $purple;
+    height: 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em $horizontal-padding;
   }
-  span {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
+
+  .content {
+    background-color: $purple;
+    position: relative;
+    height: 40em;
+
+    .headline {
+      position: absolute;
+      left: $horizontal-padding;
+      bottom: 5em;
+
+      h1 {
+        color: $white;
+        font-size: 4em;
+        text-align: left;
+      }
+
+      .underline {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .phone {
+    position: absolute;
+    bottom: 2em;
+    left: 0;
+    right: 0;
+  }
+
+  .helper {
+    position: absolute;
+    width: 85vw;
+    max-width: 35em;
+    right: -15vw;
+    top: 5em;
+  }
+}
+
+.find-people {
+  margin-top: $phone-height-mobile;
+
+  .magnifier {
+    display: none;
+  }
+
+  .headline {
+    margin-bottom: 3em;
+  }
+
+  .phone {
+    position: relative;
+  }
+}
+
+.simplicity {
+  margin-top: $phone-height-mobile;
+  
+  .headline {
+    margin-bottom: 4em;
+  }
+}
+
+.simplicity::before {
+  content: ' ';
+  display: block;
+  height: 8em;
+}
+
+.messaging {
+  margin-top: 10em;
+
+  .headline {
+    margin-bottom: 4em;
+  }
+}
+
+.quote {
+  margin-top: 10em;
+  background-color: $cyan;
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  h3 {
+    opacity: 0.5;
+  }
+}
+
+.download {
+  padding: 0;
+  margin-top: 10em;
+
+  .content {
+    padding: 8em $horizontal-padding;
+    background-color: $purple;
+    
+    h2 {
+      color: $white;
+    }
+
+    .store-btns {
+      margin-top: 4em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .app-store-btn {
+        height: 76px;
+        padding: 0.2em;
+      }
+
+      .play-store-btn {
+        height: 80px;
+        padding: 0.2em;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $black;
+  padding: 1em 0;
+  
+  .social-media-icons {
+    padding: 5em $horizontal-padding;
+    display: flex;
+    justify-content: center;
+
+    .social-media-icon {
+      height: 1.5em;
+      padding: 1em
+    }
+  }
+
+  p {
+    color: white;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 0.8em;
   }
 }
