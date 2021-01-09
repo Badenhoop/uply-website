@@ -1,6 +1,6 @@
 module.exports = {
   jpegtran: { progressive: true, arithmetic: false },
-  gifsicle: { optimizationLevel: 2, interlaced: false, colors: 20 },
+  gifsicle: { optimizationLevel: 10, interlaced: true, colors: 25 },
   pngquant: { quality: [0.25, 0.5] },
   svgo: {
       plugins: [{ removeViewBox: false }, { cleanupIDs: true }],

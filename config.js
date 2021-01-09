@@ -4,7 +4,7 @@ module.exports = {
   webRoot: path.join(__dirname, './www'),
   publicRoot: path.join(__dirname, './www'),
 
-  distFileName: 'public',
-  deployRoot: path.join(__dirname, 'public'),
-  distRoot: path.join(__dirname, 'public')
+  distFileName: 'docs',
+  deployRoot: path.join(__dirname, 'docs'),
+  distRoot: path.join(__dirname, 'docs')
 };
