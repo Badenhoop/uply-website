@@ -17,7 +17,7 @@ const bundle = async (entryPoint) => {
   const options = {
     outDir: outDir.toString(), // The out directory to put the build files in, defaults to dist
     outFile: outFile.toString(), // The name of the outputFile
-    publicUrl: publicUrl.toString(), // The url to server on, defaults to dist
+    publicUrl: './', // The url to server on, defaults to dist
     watch: false, // whether to watch the files and rebuild them on change, defaults to process.env.NODE_ENV !== 'production'
     cache: false, // Enabled or disables caching, defaults to true
     cacheDir: cacheDir.toString(), // The directory cache gets put in, defaults to .cache
