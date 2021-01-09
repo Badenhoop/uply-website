@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel www/index.html -d .temp --port 1234",
+    "start": "parcel www/privacy-policy/index.html -d .temp --port 1234",
     "build": "node ./tools/build-production",
-    "postbuild": "node ./tools/build-copy-data",
-    "firebase:deploy": "firebase deploy",
-    "deploy": "npm-run-all build firebase:deploy"
+    "postbuild": "node ./tools/build-copy-data"
   },
   "repository": {
     "type": "git",
