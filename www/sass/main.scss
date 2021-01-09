@@ -5,11 +5,19 @@ $cyan: #33FFA0;
 $white: #ffffff;
 $black: #000000;
 
-// Original resolution is 888x1920
-$phone-width-mobile: 90vw;
-$phone-height-mobile: 195vw;
-
 $horizontal-padding: 2em;
+$horizontal-padding-tablet: 6em;
+$hero-content-height: 40em;
+$hero-content-height-desktop: 50em;
+$section-margin: 10em;
+$section-margin-desktop: 20em;
+$tablet-width: 800px;
+$desktop-width: 1100px;
+$widescreen-width: 1400px;
+
+// Original resolution is 888x1920
+$phone-max-width: 444px;
+$phone-max-height: 960px;
 
 * {
   padding: 0;
@@ -31,7 +39,12 @@ svg {
 }
 
 section {
+  position: relative;
+  margin-top: $section-margin;
   padding: 0 $horizontal-padding;
+  @media only screen and (min-width: $desktop-width) {
+    margin-top: $section-margin-desktop;
+  }
 }
 
 ul {
@@ -46,16 +59,22 @@ h1 {
   font-weight: 800;
   line-height: 1.2;
   color: $black;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
+  @media only screen and (min-width: $tablet-width) {
+    font-size: 5em;
+  }
 }
 
 h2 {
   font-weight: 800;
   line-height: 1.2;
   color: $black;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
+  @media only screen and (min-width: $tablet-width) {
+    font-size: 4em;
+  }
 }
 
 h3 {
@@ -64,6 +83,10 @@ h3 {
   color: $black;
   font-size: 1.5em;
   text-align: center;
+
+  @media only screen and (min-width: $tablet-width) {
+    font-size: 2em;
+  }
 }
 
 .logo {
@@ -103,138 +126,346 @@ h3 {
 }
 
 .phone {
-  width: $phone-width-mobile;
-  margin: auto;
-}
+  .phone-inner {
+    position: relative;
 
-.phone-border {
-  position: absolute;
-  z-index: 1;
-  width: 90vw;
-}
-
-.phone-screen {
-  position: absolute;
-  z-index: 0;
-  width: 79vw;
-  top: 4vw;
-  left: 0;
-  right: 0;
-  margin: auto;
+    .phone-border {
+      position: relative;
+      z-index: 1;
+      width: 90vw;
+      left: 50%;
+      transform: translate(-50%, 0);
+  
+      // 493px * 0.9 = 444px which is the max width of the phone
+      @media only screen and (min-width: 493px) {
+        width: 444px;
+      }
+    }
+    
+    .phone-screen {
+      position: absolute;
+      z-index: 0;
+      width: 79vw;
+      max-width: $phone-max-width - 40px;
+      top: 4vw;
+      left: 50%;
+      transform: translate(-50%, 0);
+  
+      @media only screen and (min-width: 493px) {
+        width: 390px;
+        top: 20px;
+      }
+    }
+  }
 }
 
 .hero {
+  margin-top: 0;
   padding: 0;
 
   nav {
     background: $purple;
     height: 5em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em $horizontal-padding;
-  }
 
-  .content {
-    background-color: $purple;
-    position: relative;
-    height: 40em;
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em $horizontal-padding;
 
-    .headline {
-      position: absolute;
-      left: $horizontal-padding;
-      bottom: 5em;
-
-      h1 {
-        color: $white;
-        font-size: 4em;
-        text-align: left;
-      }
-
-      .underline {
-        margin-left: 0;
+      @media only screen and (min-width: $desktop-width) {
+        max-width: 1920px;
+        margin: 0 auto;
       }
     }
   }
 
   .phone {
-    position: absolute;
-    bottom: 2em;
-    left: 0;
-    right: 0;
+    display: block;
+    @media only screen and (min-width: $desktop-width) {
+      display: none;
+    }
   }
 
-  .helper {
-    position: absolute;
-    width: 85vw;
-    max-width: 35em;
-    right: -15vw;
-    top: 5em;
+  .content {
+    background-color: $purple;
+    @media only screen and (min-width: $desktop-width) {
+      padding: 0 $horizontal-padding;
+    }
+
+    .content-inner {
+      position: relative;
+      height: $hero-content-height;
+      @media only screen and (min-width: $desktop-width) {
+        height: $hero-content-height-desktop;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+
+      .phone {
+        display: none;
+        @media only screen and (min-width: $desktop-width) {
+          display: block;
+          margin-top: 8em;
+        }
+      }
+  
+      .headline {
+        position: absolute;
+        bottom: 5em;
+  
+        left: $horizontal-padding;
+        @media only screen and (min-width: $tablet-width) {
+          left: $horizontal-padding-tablet;
+        }
+
+        @media only screen and (min-width: $desktop-width) {
+          position: static;
+          padding: 2em;
+          margin-top: 18em;
+        }
+  
+        h1 {
+          color: $white;
+          font-size: 4em;
+          text-align: left;
+  
+          @media only screen and (min-width: $tablet-width) {
+            font-size: 5em;
+          }
+        }
+  
+        .underline {
+          margin-left: 0;
+        }
+      }
+  
+      .helper {
+        position: absolute;
+        width: 85vw;
+        max-width: 35em;
+        right: -15vw;
+        top: 5em;
+  
+        @media only screen and (min-width: $tablet-width) {
+          right: -2em;
+        }
+
+        @media only screen and (min-width: $desktop-width) {
+          position: relative;
+          max-width: none;
+          width: 50em;
+          top: 10em;
+          right: none;
+          left: 0;
+        }
+      }
+    }    
   }
 }
 
 .find-people {
-  margin-top: $phone-height-mobile;
-
-  .magnifier {
-    display: none;
+  @media only screen and (min-width: $desktop-width) {
+    padding: 0 $horizontal-padding;
+    height: 80em;
   }
 
-  .headline {
-    margin-bottom: 3em;
-  }
+  .inner {
+    @media only screen and (min-width: $desktop-width) {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
 
-  .phone {
-    position: relative;
+    .magnifier {
+      display: none;
+      @media only screen and (min-width: $desktop-width) {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        width: 80em;
+      }
+    }
+
+    .content {
+      @media only screen and (min-width: $desktop-width) {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 5em;
+        padding-left: 10em;
+      }
+      
+      @media only screen and (min-width: $widescreen-width) {
+        padding-left: 0;
+        left: 20em;
+      }
+
+      .headline {
+        margin-bottom: 3em;
+        @media only screen and (min-width: $desktop-width) {
+          padding: 2em;
+          position: relative;
+          z-index: 1;
+        }
+  
+        h2 {
+          @media only screen and (min-width: $desktop-width) {
+            text-align: right;
+            color: $white;
+          }
+        }
+  
+        .underline {
+          @media only screen and (min-width: $desktop-width) {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .phone {
+        @media only screen and (min-width: $widescreen-width) {
+          position: relative;
+          top: 10em;
+        }
+      }
+    }
   }
 }
 
 .simplicity {
-  margin-top: $phone-height-mobile;
-  
+  @media only screen and (min-width: $desktop-width) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .headline {
     margin-bottom: 4em;
+    @media only screen and (min-width: $desktop-width) {
+      order: 2;
+    }
+
+    h1 {
+      @media only screen and (min-width: $desktop-width) {
+        text-align: right;
+      }
+    }
+
+    .underline {
+      @media only screen and (min-width: $desktop-width) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .icons {
+    width: 100%;
+    max-width: 50em;
+    @media only screen and (min-width: $desktop-width) {
+      order: 1;
+    }
   }
 }
 
-.simplicity::before {
-  content: ' ';
-  display: block;
-  height: 8em;
-}
-
 .messaging {
-  margin-top: 10em;
+  @media only screen and (min-width: $desktop-width) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
 
   .headline {
     margin-bottom: 4em;
+    @media only screen and (min-width: $desktop-width) {
+      order: 2;
+      position: relative;
+      z-index: 1;
+      top: 10em;
+      left: -10em;
+    }
+
+    h1 {
+      @media only screen and (min-width: $desktop-width) {
+        text-align: left;
+      }
+    }
+
+    .underline {
+      @media only screen and (min-width: $desktop-width) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .bubbles {
+    width: 100%;
+    max-width: 50em;
+    @media only screen and (min-width: $desktop-width) {
+      order: 1;
+      position: relative;
+      z-index: 0;
+    }
   }
 }
 
 .quote {
-  margin-top: 10em;
   background-color: $cyan;
-  padding-top: 4em;
-  padding-bottom: 4em;
-
-  h2 {
-    margin-bottom: 0.5em;
+  @media only screen and (min-width: $desktop-width) {
+    background-color: $white;
+    margin-top: 40em;
   }
 
-  h3 {
-    opacity: 0.5;
+  .inner {
+    background-color: $cyan;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    @media only screen and (min-width: $desktop-width) {
+      position: relative;
+      right: 0;
+      left: 30%;
+      padding: 0;
+      height: 23em;
+    }
+
+    h2 {
+      margin-bottom: 0.5em;
+      @media only screen and (min-width: $desktop-width) {
+        position: absolute;
+        width: 10em;
+        font-size: 4em;
+        text-align: left;
+        top: -0.5em;
+        left: -1em;
+      }
+    }
+
+    h3 {
+      opacity: 0.5;
+      @media only screen and (min-width: $desktop-width) {
+        position: absolute;
+        text-align: left;
+        bottom: 1em;
+        left: 5em;
+      }
+    }
   }
 }
 
 .download {
   padding: 0;
-  margin-top: 10em;
 
   .content {
     padding: 8em $horizontal-padding;
     background-color: $purple;
     
-    h2 {
+    h1 {
+      color: $white;
+    }
+
+    h3 {
+      margin-top: 2em;
       color: $white;
     }
 
@@ -242,7 +473,7 @@ h3 {
       margin-top: 4em;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
 
       .app-store-btn {
