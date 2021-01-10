@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel www/privacy-policy/index.html -d .temp --port 1234",
+    "start-root": "parcel www/index.html -d .temp --port 1234",
+    "start-privacy-policy": "parcel www/privacy-policy/index.html -d .temp --port 1234",
     "build": "node ./tools/build-production",
     "postbuild": "node ./tools/build-copy-data"
   },
