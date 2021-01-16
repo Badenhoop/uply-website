@@ -5,7 +5,7 @@ $cyan: #33FFA0;
 $white: #ffffff;
 $black: #000000;
 
-$horizontal-padding: 2em;
+$horizontal-padding: 1em;
 $horizontal-padding-tablet: 6em;
 $hero-content-height: 40em;
 $hero-content-height-desktop: 50em;
@@ -525,7 +525,7 @@ footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em $horizontal-padding;
+      padding: 1em;
 
       @media only screen and (min-width: $desktop-width) {
         max-width: 1920px;
@@ -536,7 +536,7 @@ footer {
 
   .content {
     background-color: $purple;
-    padding: 0 $horizontal-padding;
+    padding: 0 1em;
 
     .content-inner {
       height: 30em;
