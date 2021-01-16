@@ -541,9 +541,13 @@ footer {
     .content-inner {
       height: 30em;
       display: flex;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
-  
+      @media only screen and (min-width: $tablet-width) {
+        width: $tablet-width;
+        margin: auto;
+      }
+
       .headline {
         h1 {
           color: $white;
@@ -552,7 +556,6 @@ footer {
           overflow-wrap: break-word;
           word-wrap: break-word;
           hyphens: auto;
-  
           @media only screen and (min-width: $tablet-width) {
             font-size: 4em;
           }
