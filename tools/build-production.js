@@ -46,7 +46,10 @@ const bundle = async (entryPoint) => {
 
 const run = async () => {
   await bundle('./')
-  await bundle('./privacy-policy')
+  await bundle('./privacy-policy/de')
+  await bundle('./privacy-policy/en')
+  await bundle('./terms-and-conditions/de')
+  await bundle('./terms-and-conditions/en')
 }
 
 run()
