@@ -10,7 +10,6 @@ const bundle = async (entryPoint) => {
   const inFile = path.join(inDir, 'index.html')
   const outDir = path.join(config.deployRoot, entryPoint)
   const outFile = path.join(outDir, 'index.html')
-  const publicUrl = entryPoint
   const cacheDir = path.join('.cache', entryPoint)
   
   // Bundler options
