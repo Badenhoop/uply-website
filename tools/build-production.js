@@ -1,7 +1,30 @@
 const Bundler = require('parcel-bundler')
 const path = require('path')
-const { runInContext } = require('vm')
 const config = require('../config')
+const { exec } = require("child_process");
+
+const runCommand = (cmd) => {
+  console.log(`> ${cmd}`)
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`${stderr}`);
+        return;
+    }
+    console.log(`${stdout}`);
+  });
+}
+
+const copy = (from, to) => {
+  runCommand(`cp -r ${from} ${to}`)
+}
+
+const remove = (path) => {
+  runCommand(`rm -r ${path}`)
+}
 
 const bundle = async (entryPoint) => {
   // Entrypoint file location
@@ -43,8 +66,14 @@ const bundle = async (entryPoint) => {
   })
 }
 
+const translate = () => {
+  // Only translates top level index.html
+  runCommand(`static-i18n -l en -i en -i de --allow-html --files index.html --locales-path ${config.localesRoot} --output-dir ${config.buildRoot} ${config.buildRoot}`)
+}
+
 const run = async () => {
   await bundle('./')
+  await bundle('./de')
   await bundle('./privacy-policy/de')
   await bundle('./privacy-policy/en')
   await bundle('./terms-and-conditions/de')

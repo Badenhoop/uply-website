@@ -67,5 +67,6 @@ node_modules/
 
 .cache
 .temp
+.build
 dist
 public
