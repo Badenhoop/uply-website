@@ -74,6 +74,7 @@ const translate = () => {
 const run = async () => {
   await bundle('./')
   await bundle('./de')
+  await bundle('./de/about')
   await bundle('./privacy-policy/de')
   await bundle('./privacy-policy/en')
   await bundle('./terms-and-conditions/de')

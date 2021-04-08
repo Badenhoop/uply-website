@@ -11,6 +11,7 @@
     "start-privacy-policy-de": "parcel www/privacy-policy/de/index.html -d .temp --port 1234",
     "start-terms-and-conditions-en": "parcel www/terms-and-conditions/en/index.html -d .temp --port 1234",
     "start-terms-and-conditions-de": "parcel www/terms-and-conditions/de/index.html -d .temp --port 1234",
+    "start-about": "parcel www/de/about/index.html -d .temp --port 1234",
     "build": "node ./tools/build-production",
     "postbuild": "node ./tools/build-copy-data"
   },
