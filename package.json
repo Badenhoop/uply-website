@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-root": "parcel www/index.html -d .temp --port 1234",
-    "start-root-de": "parcel www/de/index.html -d .temp --port 1234",
+    "start-de-root": "parcel www/de/index.html -d .temp --port 1234",
+    "start-about": "parcel www/about/index.html -d .temp --port 1234",
+    "start-de-about": "parcel www/de/about/index.html -d .temp --port 1234",
+    "start-impressum": "parcel www/impressum/index.html -d .temp --port 1234",
+    "start-de-impressum": "parcel www/de/impressum/index.html -d .temp --port 1234",
     "start-privacy-policy-en": "parcel www/privacy-policy/en/index.html -d .temp --port 1234",
     "start-privacy-policy-de": "parcel www/privacy-policy/de/index.html -d .temp --port 1234",
     "start-terms-and-conditions-en": "parcel www/terms-and-conditions/en/index.html -d .temp --port 1234",
     "start-terms-and-conditions-de": "parcel www/terms-and-conditions/de/index.html -d .temp --port 1234",
-    "start-about": "parcel www/de/about/index.html -d .temp --port 1234",
     "build": "node ./tools/build-production",
     "postbuild": "node ./tools/build-copy-data"
   },

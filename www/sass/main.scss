@@ -38,7 +38,7 @@ svg {
   display: block;
 }
 
-section {
+section, article {
   position: relative;
   margin-top: $section-margin;
   padding: 0 $horizontal-padding;
@@ -506,28 +506,87 @@ h3 {
 footer {
   background-color: $black;
   padding: 1em 0;
-  
-  .social-media-icons {
-    padding: 5em $horizontal-padding;
-    display: flex;
-    justify-content: center;
-
-    .social-media-icon {
-      height: 1.5em;
-      padding: 1em
-    }
-  }
 
   p {
     color: white;
     text-align: center;
     opacity: 0.5;
     font-size: 0.8em;
-    margin-bottom: 1em;
+  }
+
+  a {
+    color: white;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 0.8em;
+  }
+  a:hover {
+    opacity: 1.0;
+  }
+
+  .items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3em 0;
+    @media only screen and (min-width: $tablet-width) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .logo {
+      height: 2em;
+      margin: 0 2em 2em 0;
+      transform: translate(-0.6em, -0.3em);
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 3em 2em 0;
+      text-align: center;
+      @media only screen and (min-width: $tablet-width) {
+        text-align: left;
+      }
+
+      li {
+        margin-bottom: 0.1em;
+
+        h4 { 
+          color: white;
+          letter-spacing: 0.2em;
+          opacity: 0.7;
+          font-size: 0.8em;
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+
+    p {
+      margin: 0 1.5em;
+    }
+
+    a { 
+      opacity: 1.0; 
+    }
+
+    .social-media-icon {
+      height: 1.1em;
+      padding-right: 1.5em;
+    }
   }
 }
 
-.policy-hero {
+.article-hero {
   margin-top: 0;
   padding: 0;
 
@@ -584,7 +643,7 @@ footer {
   }
 }
 
-.policy {
+article {
   padding: 1em 1em 4em 1em;
   margin: 0;
   
